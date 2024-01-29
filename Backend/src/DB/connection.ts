@@ -1,12 +1,13 @@
+//imports necesarios
 import mysql from "mysql";
-import keys from "../keys";
 import { Sequelize } from "sequelize";
 
-const sequelize = new Sequelize("minicore-kanban-scrum", "root", "28081409", {
-  host: "localhost",
+//Debes importar tus keys que estan etiquetadas como keys-example
+import keys from "../keys";
+
+const sequelize = new Sequelize(keys.database,keys.user, keys.password, {
+  host: keys.host,
   dialect: "mysql",
 });
 
-//const connection = mysql.createConnection(keys);
-//export default connection;
 export default sequelize;
