@@ -18,7 +18,4 @@ Student.init({
   modelName: 'student'
 });
 
-// Establecer la relación uno-a-muchos con Grade
-
-
 export default Student;

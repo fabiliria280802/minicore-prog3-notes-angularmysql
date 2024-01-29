@@ -41,5 +41,4 @@ Student.init({
     sequelize: connection_1.default,
     modelName: 'student'
 });
-// Establecer la relación uno-a-muchos con Grade
 exports.default = Student;

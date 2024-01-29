@@ -15,7 +15,7 @@ const Period = sequelize.define("period", {
         type: DataTypes.DATEONLY,
         allowNull:false,
     },
-    Weigh:{
+    weigh:{
         type: DataTypes.INTEGER,
         allowNull:false,
     }

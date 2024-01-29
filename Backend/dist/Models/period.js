@@ -19,7 +19,7 @@ var Period = connection_1.default.define("period", {
         type: sequelize_1.DataTypes.DATEONLY,
         allowNull: false,
     },
-    Weigh: {
+    weigh: {
         type: sequelize_1.DataTypes.INTEGER,
         allowNull: false,
     }
