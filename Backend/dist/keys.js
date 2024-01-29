@@ -4,6 +4,6 @@ var database = {
     host: "localhost",
     user: "root",
     password: "28081409",
-    database: "minicore-kanban-scrum",
+    database: "minicore-notes",
 };
 exports.default = database;
