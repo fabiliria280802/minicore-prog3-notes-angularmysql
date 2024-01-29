@@ -1,9 +1,7 @@
 import { Model, DataTypes } from "sequelize";
 import sequelize from "../DB/connection";
 
-class Grade extends Model {}
-
-Grade.init({
+const Grade = sequelize.define("grade",{
   idGrade: {
     type: DataTypes.INTEGER,
     primaryKey: true,
@@ -30,9 +28,6 @@ Grade.init({
     type: DataTypes.INTEGER,
     allowNull: false
   }
-}, {
-  sequelize,
-  modelName: 'grade'
 });
 
 export default Grade;

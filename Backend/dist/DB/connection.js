@@ -10,4 +10,10 @@ var sequelize = new sequelize_1.Sequelize(keys_1.default.database, keys_1.defaul
     host: keys_1.default.host,
     dialect: "mysql",
 });
+/*
+host: "localhost",
+    user: "root",
+    password: "28081409",
+    database: "minicore-notes",
+*/
 exports.default = sequelize;

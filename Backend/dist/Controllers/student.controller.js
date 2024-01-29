@@ -95,12 +95,20 @@ var getStudents = function (req, res) { return __awaiter(void 0, void 0, void 0,
 }); };
 exports.getStudents = getStudents;
 var postStudent = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var student, error_3;
+    var name_1, student, error_3;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
                 _a.trys.push([0, 2, , 3]);
-                return [4 /*yield*/, student_1.default.create(req.body)];
+                name_1 = req.body.name;
+                //Validaciones
+                if (!name_1) {
+                    return [2 /*return*/, res.status(400).json({ error: 'The name field is required.' })];
+                }
+                if (name_1.length > 80) {
+                    return [2 /*return*/, res.status(400).json({ error: 'The name is too long.' })];
+                }
+                return [4 /*yield*/, student_1.default.create({ name: name_1 })];
             case 1:
                 student = _a.sent();
                 res.status(201).json(student);
@@ -108,10 +116,18 @@ var postStudent = function (req, res) { return __awaiter(void 0, void 0, void 0,
             case 2:
                 error_3 = _a.sent();
                 if (error_3 instanceof Error) {
-                    res.status(500).json({ error: error_3.message });
+                    if (error_3.name === 'SequelizeUniqueConstraintError') {
+                        res.status(400).json({ error: 'The provided name is already in use.' });
+                    }
+                    else if (error_3.name === 'SequelizeValidationError') {
+                        res.status(400).json({ error: error_3.message });
+                    }
+                    else {
+                        res.status(500).json({ error: error_3.message });
+                    }
                 }
                 else {
-                    res.status(500).json({ error: "An unexpected error occurred" });
+                    res.status(500).json({ error: 'An unexpected error occurred.' });
                 }
                 return [3 /*break*/, 3];
             case 3: return [2 /*return*/];

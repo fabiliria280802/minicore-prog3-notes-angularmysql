@@ -31,9 +31,9 @@ class Server {
     middlewares() {
         this.app.use(express.json());
         //frontend de la application
-        /*this.app.use(cors({
-            origin: 'localhost:3000'
-        }));*/
+        this.app.use(cors({
+            origin: true
+        }));
     }
     routes() {
       this.app.use("/api/students", routesStudents);

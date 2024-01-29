@@ -47,6 +47,7 @@ var period_routes_1 = __importDefault(require("../Routes/period.routes"));
 var index_1 = require("./index");
 //adicionales
 var express_1 = __importDefault(require("express"));
+var cors_1 = __importDefault(require("cors"));
 var Server = /** @class */ (function () {
     function Server() {
         var _a;
@@ -65,9 +66,9 @@ var Server = /** @class */ (function () {
     Server.prototype.middlewares = function () {
         this.app.use(express_1.default.json());
         //frontend de la application
-        /*this.app.use(cors({
-            origin: 'localhost:3000'
-        }));*/
+        this.app.use((0, cors_1.default)({
+            origin: true
+        }));
     };
     Server.prototype.routes = function () {
         this.app.use("/api/students", student_routes_1.default);
