@@ -39,21 +39,21 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.deleteStudent = exports.putStudent = exports.postStudent = exports.getStudents = exports.getStudent = void 0;
-var student_1 = __importDefault(require("../Models/student"));
-var getStudent = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var student, error_1;
+exports.deletePeriod = exports.putPeriod = exports.postPeriod = exports.getPeriods = exports.getPeriod = void 0;
+var period_1 = __importDefault(require("../Models/period"));
+var getPeriod = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var period, error_1;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
                 _a.trys.push([0, 2, , 3]);
-                return [4 /*yield*/, student_1.default.findByPk(req.params.id)];
+                return [4 /*yield*/, period_1.default.findByPk(req.params.id)];
             case 1:
-                student = _a.sent();
-                if (!student) {
-                    return [2 /*return*/, res.status(404).json({ message: 'Student not found' })];
+                period = _a.sent();
+                if (!period) {
+                    return [2 /*return*/, res.status(404).json({ message: 'Period not found' })];
                 }
-                res.json(student);
+                res.json(period);
                 return [3 /*break*/, 3];
             case 2:
                 error_1 = _a.sent();
@@ -68,17 +68,17 @@ var getStudent = function (req, res) { return __awaiter(void 0, void 0, void 0, 
         }
     });
 }); };
-exports.getStudent = getStudent;
-var getStudents = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var students, error_2;
+exports.getPeriod = getPeriod;
+var getPeriods = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var periods, error_2;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
                 _a.trys.push([0, 2, , 3]);
-                return [4 /*yield*/, student_1.default.findAll()];
+                return [4 /*yield*/, period_1.default.findAll()];
             case 1:
-                students = _a.sent();
-                res.json(students);
+                periods = _a.sent();
+                res.json(periods);
                 return [3 /*break*/, 3];
             case 2:
                 error_2 = _a.sent();
@@ -93,17 +93,17 @@ var getStudents = function (req, res) { return __awaiter(void 0, void 0, void 0,
         }
     });
 }); };
-exports.getStudents = getStudents;
-var postStudent = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var student, error_3;
+exports.getPeriods = getPeriods;
+var postPeriod = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var period, error_3;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
                 _a.trys.push([0, 2, , 3]);
-                return [4 /*yield*/, student_1.default.create(req.body)];
+                return [4 /*yield*/, period_1.default.create(req.body)];
             case 1:
-                student = _a.sent();
-                res.status(201).json(student);
+                period = _a.sent();
+                res.status(201).json(period);
                 return [3 /*break*/, 3];
             case 2:
                 error_3 = _a.sent();
@@ -118,23 +118,23 @@ var postStudent = function (req, res) { return __awaiter(void 0, void 0, void 0,
         }
     });
 }); };
-exports.postStudent = postStudent;
-var putStudent = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var student, error_4;
+exports.postPeriod = postPeriod;
+var putPeriod = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var period, error_4;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
                 _a.trys.push([0, 3, , 4]);
-                return [4 /*yield*/, student_1.default.findByPk(req.params.id)];
+                return [4 /*yield*/, period_1.default.findByPk(req.params.id)];
             case 1:
-                student = _a.sent();
-                if (!student) {
-                    return [2 /*return*/, res.status(404).json({ message: 'Student not found' })];
+                period = _a.sent();
+                if (!period) {
+                    return [2 /*return*/, res.status(404).json({ message: 'Period not found' })];
                 }
-                return [4 /*yield*/, student.update(req.body)];
+                return [4 /*yield*/, period.update(req.body)];
             case 2:
                 _a.sent();
-                res.json(student);
+                res.json(period);
                 return [3 /*break*/, 4];
             case 3:
                 error_4 = _a.sent();
@@ -149,23 +149,23 @@ var putStudent = function (req, res) { return __awaiter(void 0, void 0, void 0, 
         }
     });
 }); };
-exports.putStudent = putStudent;
-var deleteStudent = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var student, error_5;
+exports.putPeriod = putPeriod;
+var deletePeriod = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var period, error_5;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
                 _a.trys.push([0, 3, , 4]);
-                return [4 /*yield*/, student_1.default.findByPk(req.params.id)];
+                return [4 /*yield*/, period_1.default.findByPk(req.params.id)];
             case 1:
-                student = _a.sent();
-                if (!student) {
-                    return [2 /*return*/, res.status(404).json({ message: 'Student not found' })];
+                period = _a.sent();
+                if (!period) {
+                    return [2 /*return*/, res.status(404).json({ message: 'Period not found' })];
                 }
-                return [4 /*yield*/, student.destroy()];
+                return [4 /*yield*/, period.destroy()];
             case 2:
                 _a.sent();
-                res.status(204).json({ message: 'Student deleted' });
+                res.status(204).json({ message: 'Period deleted' });
                 return [3 /*break*/, 4];
             case 3:
                 error_5 = _a.sent();
@@ -180,4 +180,4 @@ var deleteStudent = function (req, res) { return __awaiter(void 0, void 0, void 
         }
     });
 }); };
-exports.deleteStudent = deleteStudent;
+exports.deletePeriod = deletePeriod;

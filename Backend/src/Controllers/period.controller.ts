@@ -1,13 +1,13 @@
 import { Request, Response } from "express";
-import Grade from "../Models/grade";
+import Period from "../Models/period";
 
-export const getGrade =async (req:Request, res: Response) => {
+export const getPeriod =async (req:Request, res: Response) => {
     try {
-        const grade = await Grade.findByPk(req.params.id);
-        if (!grade) {
-          return res.status(404).json({ message: 'Grade not found' });
+        const period = await Period.findByPk(req.params.id);
+        if (!period) {
+          return res.status(404).json({ message: 'Period not found' });
         }
-        res.json(grade);
+        res.json(period);
     } catch (error) {
         if (error instanceof Error) {
           res.status(500).json({ error: error.message });
@@ -17,10 +17,10 @@ export const getGrade =async (req:Request, res: Response) => {
     }
 }
 
-export const getGrades =async (req:Request, res: Response) =>{
-    try{
-        const grades = await Grade.findAll();
-        res.json(grades);
+export const getPeriods =async (req:Request, res: Response) =>{
+    try {
+        const periods = await Period.findAll();
+        res.json(periods);
     } catch (error) {
         if (error instanceof Error) {
           res.status(500).json({ error: error.message });
@@ -30,10 +30,10 @@ export const getGrades =async (req:Request, res: Response) =>{
     }
 }
 
-export const postGrade =async(req:Request, res: Response) =>{
-    try{
-        const grade = await Grade.create(req.body);
-        res.status(201).json(grade);
+export const postPeriod =async(req:Request, res: Response) =>{
+    try {
+        const period = await Period.create(req.body);
+        res.status(201).json(period);
     } catch (error) {
         if (error instanceof Error) {
           res.status(500).json({ error: error.message });
@@ -43,14 +43,14 @@ export const postGrade =async(req:Request, res: Response) =>{
     }
 }
 
-export const putGrade =async(req:Request, res: Response) =>{
-    try{
-        const grade = await Grade.findByPk(req.params.id);
-        if (!grade) {
-          return res.status(404).json({ message: 'Grade not found' });
+export const putPeriod =async(req:Request, res: Response) =>{
+    try {
+        const period = await Period.findByPk(req.params.id);
+        if (!period) {
+          return res.status(404).json({ message: 'Period not found' });
         }
-        await grade.update(req.body);
-        res.json(grade);
+        await period.update(req.body);
+        res.json(period);
     } catch (error) {
         if (error instanceof Error) {
           res.status(500).json({ error: error.message });
@@ -60,14 +60,14 @@ export const putGrade =async(req:Request, res: Response) =>{
     }
 }
 
-export const deleteGrade =async(req:Request, res: Response) =>{
-    try{
-        const grade = await Grade.findByPk(req.params.id);
-        if (!grade) {
-          return res.status(404).json({ message: 'Grade not found' });
+export const deletePeriod =async(req:Request, res: Response) =>{
+    try {
+        const period = await Period.findByPk(req.params.id);
+        if (!period) {
+          return res.status(404).json({ message: 'Period not found' });
         }
-        await grade.destroy();
-        res.status(204).json({ message: 'Grade deleted' });
+        await period.destroy();
+        res.status(204).json({ message: 'Period deleted' });
     } catch (error) {
         if (error instanceof Error) {
           res.status(500).json({ error: error.message });

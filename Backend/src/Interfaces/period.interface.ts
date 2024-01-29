@@ -1,3 +1,6 @@
-interface Period {
-    // Define la estructura según tu modelo Period de C#
+export interface Period {
+    idPeriod: number,
+    start: Date,
+    end: Date,
+    weigh: number
   }
